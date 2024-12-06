@@ -1,24 +1,15 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+'use client'; // Add this line to specify that this component is client-side only
 import Link from "next/link";
+import { useProductContext } from "../../Context/ProductContext"; // Adjust path
 
+const ProductList = () => {
+  const { products, editProduct, deleteProduct } = useProductContext();
 
-const ManageProducts = () => {
-  const [products, setProducts] = useState([]);
+  console.log("Products in ProductList:", products); // Log the products array
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("https://e-commerce-api-ten-sable.vercel.app/api/products");
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);  // Empty dependency array ensures this runs once when the component mounts
+  if (products.length === 0) {
+    return <p>No products available.</p>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -52,7 +43,6 @@ const ManageProducts = () => {
                   </Link>
                   <button
                     className="bg-red-600 text-white px-4 py-2 rounded"
-                    onClick={() => handleDelete(product._id)}
                   >
                     Delete
                   </button>
@@ -66,4 +56,4 @@ const ManageProducts = () => {
   );
 };
 
-export default ManageProducts;
+export default ProductList;

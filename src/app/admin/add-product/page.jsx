@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import axios from "axios";
+"use client"
+import { useState } from "react";
+import { useProductContext } from "../../../Context/ProductContext"; // Import the context
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({
@@ -11,10 +11,12 @@ const AddProduct = () => {
     stock: "",
   });
   const [image, setImage] = useState(null);
+  const { addProduct } = useProductContext(); // Access addProduct from the context
 
   const handleInputChange = (e) => {
     setProductData({ ...productData, [e.target.name]: e.target.value });
   };
+
   const handleImageChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
@@ -27,107 +29,58 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    const formData = new FormData();
-    formData.append("name", productData.name);
-    formData.append("description", productData.description);
-    formData.append("price", productData.price);
-    formData.append("category", productData.category);
-    formData.append("stock", productData.stock);
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        alert("No authentication token found. Please log in.");
-        return;
-      }
-  
-      const response = await axios.post(
-        "https://e-commerce-api-ten-sable.vercel.app/api/products ",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      alert("Product added successfully!");
-      setProductData({
-        name: "",
-        description: "",
-        price: "",
-        category: "",
-        stock: "",
-      });
-      setImage(null);
-    } catch (error) {
-      if (error.response) {
-        console.error("Server Error:", error.response.data);
-        alert(`Error: ${error.response.data.message}`);
-      } else {
-        console.error("Error adding product:", error.message);
-        alert("An unexpected error occurred. Please try again.");
-      }
-    }
+    await addProduct(productData, image); // Call the addProduct function from context
+    setProductData({
+      name: "",
+      description: "",
+      price: "",
+      category: "",
+      stock: "",
+    });
+    setImage(null);
   };
-  
+
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-semibold mb-4">Add Product</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="Product Name"
-          value={productData.name}
-          onChange={handleInputChange}
-          className="block w-full p-2 border rounded"
-        />
-        <textarea
-          name="description"
-          placeholder="Product Description"
-          value={productData.description}
-          onChange={handleInputChange}
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Price"
-          value={productData.price}
-          onChange={handleInputChange}
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="text"
-          name="category"
-          placeholder="Category"
-          value={productData.category}
-          onChange={handleInputChange}
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="number"
-          name="stock"
-          placeholder="Stock"
-          value={productData.stock}
-          onChange={handleInputChange}
-          className="block w-full p-2 border rounded"
-        />
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="block w-full p-2 border rounded"
-        />
-        <button
-          type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded"
-        >
-          Add Product
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      {/* Form fields here */}
+      <input
+        type="text"
+        name="name"
+        value={productData.name}
+        onChange={handleInputChange}
+        placeholder="Product Name"
+      />
+      <input
+        type="text"
+        name="description"
+        value={productData.description}
+        onChange={handleInputChange}
+        placeholder="Product Description"
+      />
+      <input
+        type="text"
+        name="price"
+        value={productData.price}
+        onChange={handleInputChange}
+        placeholder="Price"
+      />
+      <input
+        type="text"
+        name="category"
+        value={productData.category}
+        onChange={handleInputChange}
+        placeholder="Category"
+      />
+      <input
+        type="text"
+        name="stock"
+        value={productData.stock}
+        onChange={handleInputChange}
+        placeholder="Stock Quantity"
+      />
+      <input type="file" onChange={handleImageChange} />
+      <button type="submit">Add Product</button>
+    </form>
   );
 };
 

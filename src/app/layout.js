@@ -1,6 +1,7 @@
 import "./globals.css";
 import { AuthProvider } from "../Context/handleLogin";
 import LayoutContent from "../components/LayoutContent";
+import { ProductProvider } from "@/Context/ProductContext";
 
 export const metadata = {
   title: "AZ Shop - E-Commerce Platform",
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="text-gray-800">
         <AuthProvider>
-          <LayoutContent>{children}</LayoutContent>
+          <ProductProvider>
+              <LayoutContent>{children}</LayoutContent>
+          </ProductProvider>
         </AuthProvider>
       </body>
     </html>
