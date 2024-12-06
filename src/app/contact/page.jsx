@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function ContactUsPage() {
   return (
@@ -69,7 +70,7 @@ export default function ContactUsPage() {
             Our Contact Details
           </h2>
           <p className="text-gray-600">
-            Have questions? We'd love to hear from you! Reach out to us using
+            Have questions? We&apos;d love to hear from you! Reach out to us using
             the following details:
           </p>
           <ul className="mt-4 space-y-4">

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 // Server-side function to fetch data (Server Component)
@@ -20,7 +21,9 @@ const ProductsPage = async () => {
             key={product.id}
             className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-all"
           >
-            <img
+            <Image
+              height={100}
+              width={100}
               src={product.image}
               alt={product.title}
               className="w-full h-64 object-cover mb-4 rounded-md"

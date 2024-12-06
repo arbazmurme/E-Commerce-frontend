@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutUsPage() {
   return (
     <div className="container mx-auto px-4 py-12">
@@ -7,10 +9,12 @@ export default function AboutUsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* About Image */}
         <div>
-          <img
+          <Image
             src="/6568.webp"
             alt="About AZ Shop"
             className="rounded-lg shadow-md w-full h-auto"
+            width={600}  // Specify width
+            height={400} // Specify height
           />
         </div>
         {/* About Content */}
@@ -44,28 +48,34 @@ export default function AboutUsPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="text-center">
-            <img
+            <Image
               src="/arbazmurme.webp"
               alt="Arbaz Murme"
               className="rounded-full w-32 h-32 mx-auto mb-4"
+              width={128} // Specify width
+              height={128} // Specify height
             />
             <h3 className="text-lg font-semibold">Arbaz Murme</h3>
             <p className="text-gray-600">Founder & CEO</p>
           </div>
           <div className="text-center">
-            <img
+            <Image
               src="/mmmm.webp"
               alt="Jane Smith"
               className="rounded-full w-32 h-32 mx-auto mb-4"
+              width={128} // Specify width
+              height={128} // Specify height
             />
             <h3 className="text-lg font-semibold">Jane Smith</h3>
             <p className="text-gray-600">Head of Marketing</p>
           </div>
           <div className="text-center">
-            <img
+            <Image
               src="/young-bearded-man-with-striped-shirt.webp"
               alt="Sam Wilson"
               className="rounded-full w-32 h-32 mx-auto mb-4"
+              width={128} // Specify width
+              height={128} // Specify height
             />
             <h3 className="text-lg font-semibold">Sam Wilson</h3>
             <p className="text-gray-600">Lead Developer</p>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useAuth } from "../Context/handleLogin";
 
 export default function AdminHeader() {
@@ -7,18 +8,18 @@ export default function AdminHeader() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold">AZ Shop - Admin Panel</h1>
           <nav className="space-x-4">
-            <a href="/admin/dashboard" className="hover:underline">
+            <Link href="/admin/dashboard" className="hover:underline">
               Dashboard
-            </a>
-            <a href="/admin/products" className="hover:underline">
+            </Link>
+            <Link href="/admin/products" className="hover:underline">
               Manage Products
-            </a>
+            </Link>
             <a href="/admin/users" className="hover:underline">
               Manage Users
             </a>
-            <a href="/" onClick={handleLogout} className="hover:underline text-red-300">
+            <Link href="/" onClick={handleLogout} className="hover:underline text-red-300">
               Logout
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
