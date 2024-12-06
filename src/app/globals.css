@@ -2,20 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  .button {
+    @apply bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-700;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* NProgress Customization */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #4f46e5;
+  height: 4px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #4f46e5, 0 0 5px #4f46e5;
+}
+
+#nprogress .spinner {
+  display: none;
 }
