@@ -84,7 +84,6 @@ export const ProductProvider = ({ children }) => {
           product._id === productId ? response.data : product
         )
       );
-      alert("Product updated successfully!");
     } catch (error) {
       handleError(error);
     }

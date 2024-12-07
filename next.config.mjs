@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['fakestoreapi.com'],
-      },    
+        domains: ['e-commerce-api-ten-sable.vercel.app'],
+      },   
 };
 
 export default nextConfig;
