@@ -1,8 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['e-commerce-api-ten-sable.vercel.app'],
-      },   
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**', // Matches all hostnames
+      },
+    ],
+  },
 };
 
 export default nextConfig;

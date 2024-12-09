@@ -1,34 +1,21 @@
-import Link from 'next/link';
-
-import React from "react";
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-white p-4 rounded shadow-md text-center">
-          <h2 className="text-xl font-semibold">Total Products</h2>
-          <p className="text-4xl font-bold">150</p>
+    <div className="flex flex-col items-center gap-12 p-12">
+      <h1 className="text-5xl font-bold">Dashboard</h1>
+      <div className="grid grid-cols-3 gap-12">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-bold">Total Products</h2>
+          <p className="text-4xl font-bold">100</p>
         </div>
-        <div className="bg-white p-4 rounded shadow-md text-center">
-          <h2 className="text-xl font-semibold">Total Users</h2>
-          <p className="text-4xl font-bold">120</p>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-bold">Total Users</h2>
+          <p className="text-4xl font-bold">50</p>
         </div>
-        <div className="bg-white p-4 rounded shadow-md text-center">
-          <h2 className="text-xl font-semibold">Sales</h2>
-          <p className="text-4xl font-bold">$15,000</p>
-        </div>
-      </div>
-
-      <div className="p-6">
-        <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-semibold">Quick Actions</h2>
-          <Link href="/admin/products">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded">Manage Products</button>
-          </Link>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-2xl font-bold">Total Orders</h2>
+          <p className="text-4xl font-bold">20</p>
         </div>
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}
