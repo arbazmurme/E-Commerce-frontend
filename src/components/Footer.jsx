@@ -1,5 +1,5 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 
 export default function Footer() {
   return (
@@ -13,18 +13,34 @@ export default function Footer() {
               AZ Shop offers a wide range of products at unbeatable prices. Your one-stop shop for quality and value.
             </p>
           </div>
-          
+
           {/* Column 2: Links */}
           <div className="w-full sm:w-1/3 mb-8 sm:mb-0">
             <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link href="/products"><a className="hover:text-blue-400 hover:underline">Shop Products</a></Link></li>
-              <li><Link href="/about"><a className="hover:text-blue-400 hover:underline">About Us</a></Link></li>
-              <li><Link href="/contact"><a className="hover:text-blue-400 hover:underline">Contact Us</a></Link></li>
-              <li><Link href="/privacy"><a className="hover:text-blue-400 hover:underline">Privacy Policy</a></Link></li>
+              <li>
+                <Link href="/products" className="hover:text-blue-400 hover:underline">
+                  Shop Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-blue-400 hover:underline">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-blue-400 hover:underline">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="hover:text-blue-400 hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
-          
+
           {/* Column 3: Newsletter */}
           <div className="w-full sm:w-1/3">
             <h3 className="text-lg font-semibold text-white mb-4">Stay Connected</h3>
