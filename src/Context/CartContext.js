@@ -1,6 +1,6 @@
 "use client";
 // Context/CartContext.js
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 // Create a Context for Cart
@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
   const getToken = () => localStorage.getItem('token');
 
   // Fetch cart data from server
-  const fetchCart = async () => {
+  const fetchCart = useCallback(async () => {
     const token = getToken();
     if (!token) {
       console.error('No token found. Please log in.');
@@ -32,7 +32,7 @@ export const CartProvider = ({ children }) => {
     } catch (error) {
       console.error('Error fetching cart data:', error);
     }
-  };
+  }, []);
 
   // Update cart quantity
   const updateQuantity = async (productId, newQuantity) => {
@@ -112,7 +112,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     fetchCart();
     getCartItems();
-  }, []);
+  }, [fetchCart]); // Adding fetchCart to the dependency array
 
   return (
     <CartContext.Provider

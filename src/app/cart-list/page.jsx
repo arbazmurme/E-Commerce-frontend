@@ -9,8 +9,7 @@ import { useCart } from "../../Context/CartContext";
 const Cart = () => {
   const { cart, updateQuantity, handleDeleteProduct } = useCart();
   useEffect(() => {
-    console.log(cart);
-    
+    cart
   })
   // Render loading state if cart is not fetched yet
   if (!cart) {

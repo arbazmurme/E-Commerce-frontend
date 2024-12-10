@@ -1,4 +1,5 @@
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import Link from 'next/link'; // Import Link from next/link
 
 export default function Footer() {
   return (
@@ -17,10 +18,10 @@ export default function Footer() {
           <div className="w-full sm:w-1/3 mb-8 sm:mb-0">
             <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="/products" className="hover:text-blue-400 hover:underline">Shop Products</a></li>
-              <li><a href="/about" className="hover:text-blue-400 hover:underline">About Us</a></li>
-              <li><a href="/contact" className="hover:text-blue-400 hover:underline">Contact Us</a></li>
-              <li><a href="/privacy" className="hover:text-blue-400 hover:underline">Privacy Policy</a></li>
+              <li><Link href="/products"><a className="hover:text-blue-400 hover:underline">Shop Products</a></Link></li>
+              <li><Link href="/about"><a className="hover:text-blue-400 hover:underline">About Us</a></Link></li>
+              <li><Link href="/contact"><a className="hover:text-blue-400 hover:underline">Contact Us</a></Link></li>
+              <li><Link href="/privacy"><a className="hover:text-blue-400 hover:underline">Privacy Policy</a></Link></li>
             </ul>
           </div>
           
