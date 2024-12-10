@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useProductContext } from "../Context/ProductContext";
 import { FaShoppingCart, FaEye } from "react-icons/fa";
 import Link from 'next/link';
+import AddToCartButton from '@/components/card/Add-to-Cart';
 
 export default function HomePage() {
   const { products } = useProductContext();
@@ -52,13 +53,7 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="mt-4 flex justify-between items-center gap-2">
-                  <button
-                    className="flex items-center gap-2 bg-blue-500 text-white text-sm font-semibold py-2 px-4 rounded-lg shadow hover:bg-blue-600 transition"
-                    onClick={() => console.log(`Add to Cart: ${product.name}`)}
-                  >
-                    <FaShoppingCart />
-                    Add to Cart
-                  </button>
+                  <AddToCartButton productId={product._id} />
                   <button
                     className="flex items-center gap-2 bg-gray-200 text-gray-700 text-sm font-semibold py-2 px-4 rounded-lg shadow hover:bg-gray-300 transition"
                     onClick={() => console.log(`View Details: ${product.name}`)}

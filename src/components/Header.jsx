@@ -4,14 +4,15 @@ import Link from "next/link";
 import { useAuth } from "../Context/handleLogin";
 import { FaShoppingCart, FaUser, FaSignOutAlt, FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import { useState } from "react";
-
+import { useCart } from "../Context/CartContext";
 export default function Header() {
   const { user, isLoggedIn, handleLogout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const { cartItems } = useCart(); 
 
   // Assume you have a state or context for managing the cart items
-  const cartItems = 3; // You can replace this with actual cart state from your context or store.
+  const cartItemCount = cartItems; // You can replace this with actual cart state from your context or store.
 
   return (
     <header className="bg-gray-800 text-white shadow-md">

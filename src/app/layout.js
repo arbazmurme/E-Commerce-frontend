@@ -2,6 +2,7 @@ import "./globals.css";
 import { AuthProvider } from "../Context/handleLogin";
 import LayoutContent from "../components/LayoutContent";
 import { ProductProvider } from "@/Context/ProductContext";
+import { CartProvider } from "@/Context/CartContext";
 
 export const metadata = {
   title: "AZ Shop - E-Commerce Platform",
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
       <body className="text-gray-800">
         <AuthProvider>
           <ProductProvider>
+            <CartProvider>
               <LayoutContent>{children}</LayoutContent>
+            </CartProvider>
           </ProductProvider>
         </AuthProvider>
       </body>
