@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      const response = await axios.get('http://localhost:3001/api/cart', {
+      const response = await axios.get('https://e-commerce-api-ten-sable.vercel.app/api/cart', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -44,7 +44,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       const response = await axios.put(
-        'http://localhost:3001/api/cart/update',
+        'https://e-commerce-api-ten-sable.vercel.app/api/cart/update',
         { productId, quantity: newQuantity },
         {
           headers: {
@@ -74,7 +74,7 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      const response = await axios.delete('http://localhost:3001/api/cart/remove', {
+      const response = await axios.delete('https://e-commerce-api-ten-sable.vercel.app/api/cart/remove', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -99,7 +99,7 @@ export const CartProvider = ({ children }) => {
         return;
       }
 
-      const response = await axios.get("http://localhost:3001/api/cart", {
+      const response = await axios.get("https://e-commerce-api-ten-sable.vercel.app/api/cart", {
         headers: { Authorization: `Bearer ${token}` },
       });
 

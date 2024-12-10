@@ -8,6 +8,12 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    appDir: true, // Only if using the App Router
+  },
+  future: {
+    webpack5: true, // Explicitly use Webpack
+  },
 };
 
 export default nextConfig;
