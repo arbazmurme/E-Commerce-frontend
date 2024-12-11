@@ -3,7 +3,7 @@
 AZ Shop is a modern e-commerce platform built with the MERN stack, using Next.js for the frontend and Express.js for the backend. This project showcases a fully functional shopping experience with admin and user dashboards, product management, and cart functionality.
 ## Demo
 
-Check out the live demo: [AZ Shop Demo](https://your-demo-link.com)
+Check out the live demo: [AZ Shop Demo](https://e-commerce-frontend-topaz-delta.vercel.app/)
 
 ## Features
 
