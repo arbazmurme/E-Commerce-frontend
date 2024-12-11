@@ -2,14 +2,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaShoppingCart } from "react-icons/fa";
+import { useCart } from "../../Context/CartContext";
 
 const AddToCartButton = ({ productId }) => {
+  const { setCartItems } = useCart();
   const [isLoading, setIsLoading] = useState(false);
+  
 
   // Function to get the token from localStorage
   const getToken = () => {
     return localStorage.getItem("token");
   };
+
 
   const handleAddToCart = async () => {
     const token = getToken();
@@ -21,8 +25,8 @@ const AddToCartButton = ({ productId }) => {
     setIsLoading(true);
 
     try {
-      await axios.post(
-        "http://localhost:3001/api/cart/add",
+      const response = await axios.post(
+        "https://e-commerce-api-ten-sable.vercel.app/api/cart/add",
         { productId, quantity: 1 }, // Send productId and default quantity
         {
           headers: {
@@ -30,7 +34,8 @@ const AddToCartButton = ({ productId }) => {
           },
         }
       );
-      console.log("Product added to cart successfully.");
+      setCartItems(response.data.items.length);
+/*       console.log("Product added", response.data.items.length,"2nd", cartItems); */
     } catch (error) {
       console.error("Error adding product to cart:", error);
     } finally {

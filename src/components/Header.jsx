@@ -100,16 +100,32 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden bg-gray-700 text-white">
           <nav className="flex flex-col space-y-4 p-6">
-            <Link href="/" className="hover:text-blue-400 transition ease-in-out duration-300">
+            <Link 
+              href="/" 
+              onClick={() => setMenuOpen(false)} 
+              className="hover:text-blue-400 transition ease-in-out duration-300"
+            >
               Home
             </Link>
-            <Link href="/products" className="hover:text-blue-400 transition ease-in-out duration-300">
+            <Link 
+              href="/products" 
+              onClick={() => setMenuOpen(false)} 
+              className="hover:text-blue-400 transition ease-in-out duration-300"
+            >
               Products
             </Link>
-            <Link href="/about" className="hover:text-blue-400 transition ease-in-out duration-300">
+            <Link 
+              href="/about" 
+              onClick={() => setMenuOpen(false)} 
+              className="hover:text-blue-400 transition ease-in-out duration-300"
+            >
               About
             </Link>
-            <Link href="/contact" className="hover:text-blue-400 transition ease-in-out duration-300">
+            <Link 
+              href="/contact" 
+              onClick={() => setMenuOpen(false)} 
+              className="hover:text-blue-400 transition ease-in-out duration-300"
+            >
               Contact
             </Link>
             {isLoggedIn ? (
@@ -119,7 +135,10 @@ export default function Header() {
                   <span>Hi, {user.name}</span>
                 </span>
                 <button
-                  onClick={handleLogout}
+                  onClick={() => {
+                    setMenuOpen(false); 
+                    handleLogout();
+                  }}
                   className="flex items-center space-x-2 bg-red-500 px-4 py-2 rounded hover:bg-red-600 transition ease-in-out duration-300"
                 >
                   <FaSignOutAlt />
@@ -129,6 +148,7 @@ export default function Header() {
             ) : (
               <Link
                 href="/login"
+                onClick={() => setMenuOpen(false)}
                 className="flex items-center space-x-2 bg-blue-500 px-4 py-2 rounded hover:bg-blue-600 transition ease-in-out duration-300"
               >
                 <FaUser />
@@ -138,6 +158,7 @@ export default function Header() {
           </nav>
         </div>
       )}
+
     </header>
   );
 }

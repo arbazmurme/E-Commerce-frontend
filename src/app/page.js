@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useProductContext } from "../Context/ProductContext";
-import { FaShoppingCart, FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import Link from 'next/link';
 import AddToCartButton from '@/components/card/Add-to-Cart';
 

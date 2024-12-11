@@ -7,10 +7,12 @@ import Image from "next/image";
 import { useCart } from "../../Context/CartContext";
 
 const Cart = () => {
-  const { cart, updateQuantity, handleDeleteProduct } = useCart();
+  const { cart, fetchCart, updateQuantity, handleDeleteProduct } = useCart();
+  
   useEffect(() => {
-    cart
-  })
+    fetchCart();
+  }, [fetchCart]);
+
   // Render loading state if cart is not fetched yet
   if (!cart) {
     return (

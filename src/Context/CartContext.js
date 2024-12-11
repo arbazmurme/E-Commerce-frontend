@@ -112,7 +112,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     fetchCart();
     getCartItems();
-  }, [fetchCart]); // Adding fetchCart to the dependency array
+  }, [fetchCart]);
 
   return (
     <CartContext.Provider
